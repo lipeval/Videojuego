@@ -1,0 +1,39 @@
+<!doctype html>
+<script src="main.js"></script>
+<script src="levels.js"></script>
+<script src="sounds.js"></script>
+<link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC" rel="stylesheet">
+<link rel="stylesheet" href="main.css">
+<body>
+    <header>
+        <h1>Recty al Rescate</h1>
+    </header>
+<script>
+
+  async function runGame(plans, Display) {
+    let lives = 3;
+    for (let level = 0; level < plans.length && lives > 0;) {
+      console.log(`Level ${level + 1}, lives: ${lives}`);
+      let status = await runLevel(new Level(plans[level]),
+                                  Display);
+      if (status == "won") level++;
+      else lives--;
+    }
+    if (lives > 0) {
+      console.log("You've won!");
+    } else {
+      console.log("Pierdes ZombieComecabezas");
+    }
+  }
+  runGame(GAME_LEVELS, DOMDisplay);
+
+</script>
+<div class="image"></div>
+<div>
+  <p>Ayuda a Recty a salvar a sus crios!!</p>
+        <p>
+                <strong>Move with:<img src="http://www.101computing.net/wp/wp-content/uploads/arrowKeys.png" width="80px" height="55px" alt="arrow keys"></strong>
+            </p>
+</div>
+
+</body>

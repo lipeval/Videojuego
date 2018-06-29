@@ -1,39 +1,35 @@
-<!doctype html>
-<script src="main.js"></script>
-<script src="levels.js"></script>
-<script src="sounds.js"></script>
-<link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC" rel="stylesheet">
-<link rel="stylesheet" href="main.css">
-<body>
-    <header>
-        <h1>Recty al Rescate</h1>
-    </header>
-<script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
 
-  async function runGame(plans, Display) {
-    let lives = 3;
-    for (let level = 0; level < plans.length && lives > 0;) {
-      console.log(`Level ${level + 1}, lives: ${lives}`);
-      let status = await runLevel(new Level(plans[level]),
-                                  Display);
-      if (status == "won") level++;
-      else lives--;
-    }
-    if (lives > 0) {
-      console.log("You've won!");
-    } else {
-      console.log("Pierdes ZombieComecabezas");
-    }
-  }
-  runGame(GAME_LEVELS, DOMDisplay);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <title>Recty</title>
+  </head>
+  <body>
+   
+      <header>
+          <h1>Recty al Rescate</h1>
+      </header>
+      <button id="start">Start Game</button> 
+      <button id="start1"></button>
+      <script src="main.js"></script>
+      <script src="levels.js"></script>
+      <script>
+      
+          runGame(GAME_LEVELS, DOMDisplay);
+      </script>
+    <span id="info">Ayuda a Recty a salvar a sus hijos..</span> 
+    <span>
+            <strong>Move with:<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvWgnME864QUOT2S6yDb06104bt_9JtAyuu5uxJrzK5EIFIYNh" width="80px" height="55px" alt="arrow keys"></strong>
+    </span>
+   
+    </body>
+   
+</html>
 
-</script>
-<div class="image"></div>
-<div>
-  <p>Ayuda a Recty a salvar a sus crios!!</p>
-        <p>
-                <strong>Move with:<img src="http://www.101computing.net/wp/wp-content/uploads/arrowKeys.png" width="80px" height="55px" alt="arrow keys"></strong>
-            </p>
-</div>
-
-</body>

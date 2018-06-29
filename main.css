@@ -1,3 +1,10 @@
+body{
+    width: 100%;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+}
 .background{ 
     background: linear-gradient(to bottom right, #e1eec3,#f05053);
     table-layout: fixed;
@@ -28,7 +35,7 @@
 }
 
 .player{ 
-    background:linear-gradient(to bottom right, #fceabb, #f8b500);  
+    background: linear-gradient(to bottom right, #F7971E, #FFD200);
 }
 
 .lost .player{
@@ -41,18 +48,47 @@
 
 .game{
     overflow: hidden;
-    max-width: 600px;
-    max-height: 450px;
+    max-width: 750px;
+    max-height: 600px;
     position: relative;
 }
 
 header{
+    width: 100%;
     font-family:  'IM Fell English SC', serif;
     background-color: #6190E8;
     color: white;
     font-size: 1.7em;
     padding-bottom: 0%;
-    padding-left: 5%;
-    margin-right: 815px;
+    padding-left: 5%; 
+    text-align: center; 
 }
+
+p {
+    font-family: 'IM Fell English SC', serif;
+}
+
+span {
+    margin-left: 14%;
+    font-size: 20px; 
+    font-family: 'IM Fell English SC', serif;
+}
+
+#info{
+    background: #6190E8;
+    font-family: 'IM Fell English SC', serif;
+    color: white;
+    font-size: 23px;
+
+}
+
+button{
+    height: 40px;
+    font-size: 20px;
+    font-family: 'IM Fell English SC', serif;
+}
+
+
+
+
 

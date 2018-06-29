@@ -1,5 +1,11 @@
 
-var simpleLevelPlan = `
+
+var aud = new Audio();
+  aud.src ="./God Of War - Ghost Of Sparta (OST) - The Caldera.ogg"
+  aud.loop = true;
+  aud.currentTime = 0;
+
+  var simpleLevelPlan = `
 ......................
 ..#................#..
 ..#..............=.#..
@@ -104,7 +110,9 @@ class State {
       this.wobble = wobble;
     }
   
-    get type() { return "coin"; }
+    get type() { 
+      return "coin"; 
+    }
   
     static create(pos) {
       var basePos = pos.plus(new Vec(0.2, 0.1));
@@ -174,6 +182,7 @@ function drawActors(actors) {
     this.dom.appendChild(this.actorLayer);
     this.dom.className = `game ${state.status}`;
     this.scrollPlayerIntoView(state);
+
   };
 
   DOMDisplay.prototype.scrollPlayerIntoView = function(state) {
@@ -266,7 +275,7 @@ function drawActors(actors) {
     }
   };
 
-  const wobbleSpeed = 20, wobbleDist = 0.14;
+  const wobbleSpeed = 16, wobbleDist = 0.14;
 
 Coin.prototype.update = function(time) {
   var wobble = this.wobble + time * wobbleSpeed;
@@ -352,7 +361,18 @@ function trackKeys(keys) {
         });
       }
 
+      var seconds = 0;
+
+      function incrementSeconds() {
+        seconds += 1;
+         var el = document.getElementById('start1');
+          el.innerHTML = "Score: " + seconds;
+          
+      }
+      
+
       async function runGame(plans, Display) {
+        
         for (let level = 0; level < plans.length;) {
           var status = await runLevel(new Level(plans[level]),
                                       Display);
@@ -360,7 +380,7 @@ function trackKeys(keys) {
         }
         console.log("Has rescatado a todos los Crios :) !!");
       }
-
+     
       function runGame(plans, Display) {
         function startLevel(n) {
           runLevel(new Level(plans[n]), Display, function(status) {
@@ -371,6 +391,25 @@ function trackKeys(keys) {
             else
               console.log("You win!");
           });
+          var cancel = setInterval(incrementSeconds, 400);
         }
-        startLevel(0);
+        
+
+       
+
+
+
+
+
+
+        document.getElementById('start').addEventListener('click', function(){
+          aud.play();
+          startLevel(0);
+          
+        });
+
       }
+
+
+      
+
